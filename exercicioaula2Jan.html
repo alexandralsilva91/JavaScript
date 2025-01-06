@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //criar funcao que aceita um argumento, que é um numero
+        //na funcao, terao o array [1, 2, 3, 4, 5, 6, 7, 8]
+        //argumento, removem do array o argumento + 3 valores a seguir
+        //se o argumento nao for encontrado, deve retornar uma string com mensagem de erro
+
+        let array = [1, 2, 3, 4, 5, 6, 7, 8];
+        
+        function exemplo(n) {
+            let search = array.indexof(n);
+            if (search != -1)
+            {
+                array.splice(n, 4);
+                return array;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+    </script>
+</body>
+</html>

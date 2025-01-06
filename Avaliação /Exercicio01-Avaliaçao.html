@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let paises = ['Albânia', 'Bolívia', 'Dinamarca', 'Etiópia', 'Finlândia', 'Alemanha', 'Hungria', 'Irlanda', 'Japão', 'Quénia'];
+
+        // Cria um ciclo que faça console.log de cada um dos países; 
+        let i = 0;
+        while (i < paises.length) {
+            console.log(paises[i]);
+            i++;
+        }
+
+        // Cria uma função que devolve o número de itens do array países;
+        function nrPaises()
+        {
+            let j = 0;
+
+            while (paises[j]) {
+                j++;
+            }
+            return j;
+        }
+
+        // Adiciona à primeira posição do array o país Portugal
+        paises.unshift('Portugal');
+        console.log(paises);
+
+        // Adiciona à última posição do array o país Espanha;
+        paises.push('Espanha');
+        console.log(paises);
+
+        // Faz console.log dos 3 últimos itens do array, usando apenas uma função;
+        console.log(paises.slice(paises.length - 3, paises.length));
+
+        // Faz console.log de todos os países numa só string separado por “ - “ (espaço hífen espaço);
+        console.log(paises.join(" - "));
+    </script>
+</body>
+</html>
