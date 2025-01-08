@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // uma funçao (primeira) que aceita um preco e multiplica por 2;
+        // outra funcao (segunda), aceita 2 parametros : uma funcao para executar, e um numero
+        // se um numero for maior que 100, executa a primeira funcao
+        // se um numero for menor do que 100, nao executa a  primeira funcao, 
+        // e retorna uma mensagem qualquer
+        //
+        // para testar o exercicio chamam apenas a segunda funcao
+        
+        function primeira(preco) {
+            return preco * 2;
+        }
+
+        function segunda(funcao, numero) {
+            if (numero < 100)
+                return "qualquer coisa!";
+            if (numero > 100)
+                return funcao(numero);
+        }
+
+        console.log(primeira(101));
+        console.log(segunda(primeira, 60));
+    </script>
+</body>
+</html>
