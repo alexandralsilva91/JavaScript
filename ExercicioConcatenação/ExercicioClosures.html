@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //primeira alinea do exercicio
+        function dividir(primeirovalor) {
+            return function() {
+                const segundovalor = 2;
+                return(primeirovalor / segundovalor);
+            };
+        }
+        const funcao = dividir(100);
+        funcao();
+
+
+
+        // segunda alinea do exercicio
+        function divisao(primeironumero) {
+            return function(segundonumero) {
+                return segundonumero / primeironumero;
+            };
+        }
+        const funcaosegunda = divisao(2);
+        funcaosegunda(50);
+
+
+// para ver os resultados tenho que fazer console.log de funcao() e de funcaosegunda()
+
+    </script>
+</body>
+</html>

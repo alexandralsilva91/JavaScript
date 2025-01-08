@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //primeira alinea
+        function Livro(titulo, autor) {
+            this.titulo = titulo;
+            this.autor = autor;
+        }
+
+        //segunda alinea
+        const livroNovo1 = new Livro('Os três mosqueteiros', 'Alexandra Dumas');
+        const livroNovo2 = new Livro('Os Maias', 'Eça de Queiroz');
+
+        //terceira alinea
+        console.log(livroNovo1.titulo);
+        console.log(livroNovo1.autor);
+        
+        console.log(livroNovo2.titulo);
+        console.log(livroNovo2.autor);
+
+        //quarta alinea
+        livroNovo1.titulo = 'O Conde de Monte Cristo';
+        
+    </script>
+</body>
+</html>
