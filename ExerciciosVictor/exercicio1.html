@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const pessoas = [
+        {
+            name: "Taylor Thomas",
+            age: 47,
+            gender: "male",
+            isPremiumUser: true
+        },
+        {
+            name: "Alex Thomas",
+            age: 40,
+            gender: "female",
+            isPremiumUser: false
+        },
+        {
+            name: "Jamie Brown",
+            age: 65,
+            gender: "male",
+            isPremiumUser: false
+        },
+        {
+            name: "Morgan Taylor",
+            age: 62,
+            gender: "female",
+            isPremiumUser: true
+        },
+        {
+            name: "Reese White",
+            age: 69,
+            gender: "non-binary",
+            isPremiumUser: true
+        },
+        {
+            name: "Jamie Johnson",
+            age: 69,
+            gender: "female",
+            isPremiumUser: true
+        },
+        {
+            name: "Taylor Smith",
+            age: 55,
+            gender: "female",
+            isPremiumUser: false
+        },
+        {
+            name: "Riley Martin",
+            age: 36,
+            gender: "male",
+            isPremiumUser: false
+        },
+        {
+            name: "Jamie Jackson",
+            age: 54,
+            gender: "male",
+            isPremiumUser: true
+        },
+        {
+            name: "Casey Brown",
+            age: 67,
+            gender: "male",
+            isPremiumUser: true
+        }
+        ];
+        
+        /*
+        1 - quero que tenhas o array dos homem
+        2- quero que me digas quantos tem mais de 40 anos
+        3 - quero que mostres os users premium e os users non-premium
+        4 - que que faças um objecto.
+
+        {
+        male: [],
+        female: [],
+        premiumCount: 0
+        }
+        */
+
+        // 1
+        const homens = pessoas.filter((pessoa) => pessoa.gender === "male");
+
+        console.log(homens);
+        
+        // 2
+        const maiores40anos = pessoas.filter((pessoa) => pessoa.age > 40);
+        const quantosMaiores40 = maiores40anos.length;
+        console.log(quantosMaiores40);
+
+        // 3
+        const premiumUsers = pessoas.map((pessoa) => pessoa.isPremiumUser === true);
+
+        const nonPremiumUsers = pessoas.map((pessoa) => pessoa.isPremiumUser === false);
+
+        // 4
+       const obj = {};
+ 
+
+
+
+    </script>
+</body>
+</html>

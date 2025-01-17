@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="alert('carregamento completo!')">
+    <button onclick="console.log('teste')">
+        Carrega aqui
+    </button>
+
+    <form onsubmit="console.log('formulario submetido!')" onreset="console.log('reset done!')">
+        <input type="text" onchange="console.log('texto alterado')" />
+        <button>Submit</button>
+        <button>Reset</button>
+    </form>
+    
+    <button mouseover="" mouseout=""></button>
+    <input type="text" onfocus="primeirafuncao()" onblur="segundafuncao()" />
+
+    <script>
+        function primeirafuncao() {
+            console.log('teste1');
+        }
+        function segundafuncao() {
+            console.log('teste2')
+        }
+    </script>
+    
+
+
+</body>
+</html>

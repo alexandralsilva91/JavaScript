@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //cria uma div e adiciona ao body
+        const elemento = document.createElement("div");
+        document.body.appendChild(elemento);
+
+        //adiciona à div anteriormente criada o seguinte texto: "isto é apenas para um exercicio"
+        const conteudo = document.createTextNode("isto é apenas para um exercicio");
+        elemento.appendChild(conteudo); //OU container.prepend(conteudo)
+
+        //adiciona ao fim da div anteriormente criada o seguinte texto: "muito dificil"
+        elemento.append("muito dificil");
+
+        //adiciona à div criada um atributo chamado aria-label com o valor teste-teste
+        elemento.setAttribute("aria-label", "teste-teste");
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1">Button 1</button>
+    <button id="btn2">Button 2</button>
+    
+    <script>
+        // Adiciona a ambos os botões event listeners para mouseover e mouseout;
+        function funcaoParaMouseOver() {
+            console.log("faz algo");
+        }
+        function funcaoParaMouseOut() {
+            console.log("faz outra coisa");
+        }
+
+        const btn1 = document.getElementById("btn1");
+        const btn2 = document.getElementById("btn2");
+
+        btn1.addEventListener('mouseover', funcaoParaMouseOver);
+        btn1.addEventListener('mouseout', funcaoParaMouseOut);
+        
+        btn2.addEventListener('mouseover', funcaoParaMouseOver);
+        btn2.addEventListener('mouseout', funcaoParaMouseOut);
+
+        // Adiciona um setTimeout que adicione uma classe ao primeiro botão adicionado no primeiro passo do exercício;
+        setTimeout(() => {
+            btn1.setAttribute("class", "classe");
+        }, 5000);
+    </script>
+</body>
+</html>

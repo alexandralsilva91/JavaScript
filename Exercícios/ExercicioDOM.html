@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button">Elementos</button>
+    <p id="teste">Teste</p>
+    <button type="button">Primeiro</button>
+    <div class="container">
+       <h1><time>00:00:00</time></h1>
+       <button id="start">Start</button>
+       <button id="stop">Stop</button>
+       <button id="reset">Reset</button>
+</div>
+<script>
+    // Faz console.log de todos os button.
+    const todosOsButtons = document.getElementsByTagName("button");
+    console.log(todosOsButtons);
+
+    // Faz console.log dos button que fazem parte da div com a class container.
+    document.querySelectorAll(".container button");
+
+    // Faz console.log do p com o id teste.
+    document.querySelector("p#teste");
+</script>
+  
+</body>
+</html>
