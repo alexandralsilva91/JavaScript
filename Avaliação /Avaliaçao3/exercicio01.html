@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //
+        const elementoDiv = document.createElement('div');
+
+        elementoDiv.setAttribute('id', 'container');
+        elementoDiv.setAttribute('class', 'exercicio');
+
+        const elementoSpan = document.createElement('span');
+        elementoSpan.setAttribute('class', 'exercicio');
+        elementoSpan.prepend("Isto é o conteúdo da span");
+
+        elementoDiv.appendChild(elementoSpan);
+        document.body.appendChild(elementoDiv);
+
+        //
+        const elementosClassExercicio = document.getElementsByClassName('exercicio');
+
+        //
+        const elementoButton = document.createElement('button');
+        const elementoButton2 = document.createElement('button');
+        elementoDiv.prepend(elementoButton);
+        elementoDiv.appendChild(elementoButton2);
+
+        //
+        elementoDiv.addEventListener('click', () => {
+            setTimeout(() => {console.log('O setTimeout começou!')}, 3000)
+        });
+
+        //
+        
+
+
+    </script>
+</body>
+</html>
