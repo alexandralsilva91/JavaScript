@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //
+        const elementTextarea = document.createElement('textarea');
+        document.body.appendChild(elementTextarea);
+
+        elementTextarea.append("Escreva aqui");
+        elementTextarea.addEventListener('focus', () => console.log("Isto é um evento focus numa textarea"));
+        elementTextarea.addEventListener('blur', () => console.log("Isto é um evento blur numa textarea"));
+
+        //
+        const elementButton1 = document.createElement('button');
+        const elementButton2 = document.createElement('button');
+
+        document.body.appendChild(elementButton1);
+        document.body.appendChild(elementButton2);
+
+        elementButton1.append("Botão 1");
+        elementButton2.append("Botão 2");
+
+        var id;
+        function definirIntervalo() {
+            id = setInterval(() => console.log("setInterval começou!"), 3000);
+        } 
+
+        elementButton1.addEventListener('click', definirIntervalo);
+        
+        function pararSetInterval() {
+            clearInterval(id);
+        }
+
+        elementButton2.addEventListener('click', pararSetInterval);
+
+    </script>
+</body>
+</html>
