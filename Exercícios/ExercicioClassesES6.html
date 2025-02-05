@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Cria a classe Carro com um construtor que inicialize as propriedades marca e modelo.
+        // Adiciona um método chamado display que mostre uma mensagem como "Este é um [marca] [modelo]".
+        // Cria duas instâncias da classe Carro com diferentes marcas e modelos
+        // Chama o método display em cada instância para exibir a mensagem de apresentação.
+        // Estende a classe Carro para criar uma classe filha chamada Suv com propriedades e métodos adicionais à vossa escolha
+
+        class Carro {
+            constructor(marca, modelo) {
+                this.marca = marca
+                this.modelo = modelo
+            }
+            display() {
+                console.log(`Este é um ${this.marca} ${this.modelo}.`)
+            }
+        }
+
+        const carro1 = new Carro('Ford', 'Focus');
+        const carro2 = new Carro('Volkswagen', 'Polo');
+
+        carro1.display();
+        carro2.display();
+
+        class Suv extends Carro {
+            constructor(marca, modelo, traccao4, vol_bagagem) {
+                super(marca, modelo);
+                this.traccao4;
+                this.vol_bagagem;
+            }
+            traccao4rodas() {
+                if(this.traccao4 === true)
+                    console.log("Tem tracção às 4 rodas");
+                else
+                    console.log("Não tem tracção às 4 rodas");
+            }
+            capacidade_bagagem() {
+                console.log(`O carro ${this.marca} ${this.modelo} tem uma capacidade de bagagem de ${this.vol_bagagem} litros`);
+            }
+        }
+    </script>
+</body>
+</html>

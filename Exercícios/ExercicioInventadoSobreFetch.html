@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        fetch('https://dog.ceo/api/breeds/list/all')
+                .then(result => result.json())
+                .then((data) => {
+                    const message = data.message;
+                    const breeds = Object.keys(message);
+                    const elementUL = document.createElement("ul");
+                    
+                    breeds.forEach((breed) => {
+                        const elementLI = document.createElement("li");
+                        elementLI.textContent = breed;
+                        elementUL.appendChild(elementLI);
+                    });
+
+                    document.body.append(elementUL);
+                })
+            
+    </script>
+</body>
+</html>

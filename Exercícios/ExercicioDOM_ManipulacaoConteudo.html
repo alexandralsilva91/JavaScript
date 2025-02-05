@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //
+        const elementoDiv = document.createElement('div');
+        document.body.append(elementoDiv);
+
+        //
+        elementoDiv.innerHTML = '<ul> <li>Exemplo 01</li> <li>Exemplo02</li> </ul> <p>isto é uma div</p>';
+
+        //
+        const primeiroElementoLi = document.querySelector('li');
+
+        //
+        primeiroElementoLi.insertAdjacentHTML('afterend', '<li>Novo conteúdo</li>');
+
+        //
+        const elementToRemove = document.querySelector('p');
+        paragrafo.remove();
+    </script>
+</body>
+</html>

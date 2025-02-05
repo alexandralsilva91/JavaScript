@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Cria dinamicamente um span e adiciona uma classe com as funções dadas anteriormente.
+        const newSpan = document.createElement("span");
+        document.body.append(newSpan);
+
+        newSpan.insertAdjacentHTML('afterbegin', 'Novo conteúdo para clicar');
+
+        newSpan.classList.add('newClass');
+
+
+        //Se esse span for clickado, alterar para outra class;
+        newSpan.addEventListener('click', () => newSpan.classList.toggle('outra'));
+
+
+        //Criar um button dinamicamente e adicionar uma classe quando for disparado o evento mouseover. 
+        // Em mouseout deve remover essa class.
+        const newButton = document.createElement("button");
+
+        document.body.append(newButton);
+
+        newButton.insertAdjacentHTML('afterbegin', 'Botão'); //OU: button.textContent = "botão!";
+        
+        newButton.addEventListener('mouseover', () => newButton.classList.add('mouseover'));
+        newButton.addEventListener('mouseout', () => newButton.classList.remove('mouseover'));
+        //OU: FORMA MAIS CORRETA:
+        // const toggleButton = () => button.classList.toggle("mouseover!");
+        // button.addEventListener("mouseover", toggleButton);
+        // button.addEventListener("mouseout", toggleButton);
+
+    </script>
+</body>
+</html>

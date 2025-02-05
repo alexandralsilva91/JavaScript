@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="formulario">
+        Nome: <input type="text" name="nome"/>
+        Email: <input type="text" name="email"/>
+        Mensagem: <input type="text" name="mensagem"/>  
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        const meuFormulario = document.getElementById("formulario");
+
+        meuFormulario.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const dadosDoMeuFormulario = new FormData(event.target); //o event.target é quem disparou o evento, podia ser event.meuFormulario pq o meuFormulario é q vai disparar o evento
+        
+            const nome = dadosDoMeuFormulario.get('nome');
+            const email = dadosDoMeuFormulario.get('email');
+            const mensagem = dadosDoMeuFormulario.get('mensagem');
+
+            console.log('Nome:', nome);
+            console.log('Email:', email);
+            console.log('Mensagem:', mensagem);
+        })
+    </script>
+</body>
+</html>

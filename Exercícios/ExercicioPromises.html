@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function soma(a, b) {
+            return a + b;
+        }
+
+        const resultadoSoma = soma(1 + 2);
+
+        const promise = new Promise(function(resolve, reject) {
+            try{
+                if(resultadoSoma % 2 === 0)
+                resolve(resultadoSoma);
+            } 
+            catch{
+                if(resultadoSoma % 2 !== 0)
+                reject('error message!');
+            }
+        })
+
+        promise
+        .then(function(result) {
+            console.log(result)
+        }).catch(function(error){
+            console.log(error)})
+
+            //ver a resolucao do prof, esta mais correta, e mais simples
+    </script>
+</body>
+</html>
