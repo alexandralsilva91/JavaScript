@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Product {
+            constructor(name, price, id) {
+                this.name = name;
+                this.price = price;
+                this.id = id;
+            }   
+            setPrice(price) {
+                this.price = price;                
+            }
+        }
+
+        const potatoes = new Product('potatoes', 3 , '001');
+        const onions = new Product('onions', 1, '002');
+        const lemons = new Product('lemons', 4, '003');
+        const olives = new Product('olives', 10, '004');
+
+        class Ecommerce {
+            constructor() {
+                this.cart = [];
+                this.productsList = []; 
+            }
+
+            addProduct(newProduct) {
+                this.productsList.push(newProduct);
+            }
+
+            setProductPrice(productID, price) {
+                const product = this.getProductByID(productID);
+                if (product) {
+                    product.setPrice(price);
+                }     
+            }
+
+            getAllProducts() {
+                return this.productsList;
+            }
+
+            getAllProductsNames() {
+                const allProductsNames = this.productsList.map((product) => {
+                    return product.name;
+                });
+                return allProductsNames;
+            }
+
+            getProductByID(id) {
+                const productByID = this.productsList.find((product) => product.id === id);
+                return productByID;
+            }
+
+            getProductByName(name) {
+                const productByName = this.productsList.find((product) => product.name === name);
+                return productByName;
+            }
+
+            getProductsByPrice(initialPrice, finalPrice) {
+                const productsByPrice = this.productsList.filter((product) => product.price >= initialPrice && product.price <= finalPrice);
+                return productsByPrice;
+            }
+
+            addProductToCart(product) {
+                this.cart.push(product);
+            }
+
+            getCart() {
+                return this.cart;
+            }
+
+            getCartTotalPrice() {
+                const totalPrice = this.cart.reduce((accumulator, product) => accumulator + product.price, 0);
+                return totalPrice;
+            }
+        }
+
+        const ecommerce = new Ecommerce();
+        ecommerce.addProduct(potatoes);
+        ecommerce.addProduct(onions);
+        ecommerce.addProduct(lemons);
+        ecommerce.addProduct(olives);
+
+        console.log(ecommerce.getProductByID('001'))
+    </script>
+</body>
+</html>
