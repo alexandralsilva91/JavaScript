@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const motherDiv = document.createElement('div');
+        motherDiv.classList.add('products');
+        document.body.append(motherDiv);
+
+        fetch('https://fakestoreapi.com/products')
+            .then((response) => response.json())
+            .then((productsArray) => {
+                console.log(productsArray);
+                productsArray.forEach((product) => {
+                    const daughterDiv = document.createElement('div');
+                    daughterDiv.classList.add('product');
+                    const listUL = document.createElement('ul');
+                    daughterDiv.appendChild(listUL);
+                    listUL.innerHTML = `<h2>${product.title}</h2><img src=${product.image} alt=”imagem do produto” width=100 height=80>`;
+                    motherDiv.appendChild(daughterDiv);
+
+                    const addToCartButton = document.createElement('button');
+                    addToCartButton.textContent = "Add to Cart";
+                    daughterDiv.appendChild(addToCartButton);
+                    addToCartButton.addEventListener('click', () => {
+                        fetch("https://fakestoreapi.com/carts/7", {
+                            method: 'PUT', 
+                            mode: 'cors',
+                            cache: 'no-cache',
+                            credentials: 'same-origin',
+                            headers: {
+                            'Content-Type': 'application/json'
+                            },
+                            redirect: 'follow', 
+                            referrerPolicy: 'no-referrer', 
+                            body: JSON.stringify(data) 
+                            })
+                        .then((response) => response.json())
+                    })
+                })
+            })   
+    </script>
+</body>
+</html>
