@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const urlParams = new URLSearchParams(document.location.search);
+        const productId = urlParams.has("id") ? urlParams.get("id") : 1;
+
+        const productDiv = document.createElement('div');
+        document.body.appendChild(productDiv);
+        fetch(`https://fakestoreapi.com/products/${productId}`)
+            .then((response) => response.json())
+            .then((product) => {
+                productDiv.innerHTML = `
+                <h2>${product.title}</h2>
+                <h4>Category: ${product.category}</h4>
+                <img src=${product.image} alt=”imagem do produto” width=100 height=80 />
+                <ul>
+                    <li>id: ${product.id}</li>
+                    <li>Description: ${product.description}</li>
+                    <li>${product.price} euros</li>
+                    <li>Rating: 
+                        <br/>
+                        rate: ${product.rating.rate}
+                        <br/>
+                        count: ${product.rating.count}
+                    </li>
+                </ul>`;
+            }).catch(() => {
+                productDiv.innerHTML = `<h1>SEM PRODUTO</h1>`;
+            });
+        
+        function setFooter() {
+            const todayDate = new Date();
+            const fullYear = todayDate.getFullYear(); 
+            const footer = document.createElement('footer');
+            footer.textContent = `Copyright ${fullYear}`;
+            document.body.appendChild(footer);
+        }
+        setFooter();
+      
+    </script>
+</body>
+</html>
