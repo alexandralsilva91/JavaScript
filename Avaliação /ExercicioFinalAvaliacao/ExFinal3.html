@@ -20,8 +20,8 @@
         document.body.appendChild(productsSameCategoryDiv);
 
         //fazer fetch para obter o produto que corresponde ao productID que queremos,
-        //e coloca lo dentro da div productDiv, com todas as suas caracteristicas, de forma organizada
-        //retorna mos o produto no fim deste fetch para podermos usa lo no proximo feth 
+        //e coloca-lo dentro da div productDiv, com todas as suas caracteristicas, de forma organizada
+        //retorna-mos o produto no fim deste fetch para podermos usa-lo no proximo fecth 
         fetch(`https://fakestoreapi.com/products/${productId}`)
             .then((response) => response.json())
             .then((product) => {
@@ -44,7 +44,7 @@
             })
 
             //o proximo fetch é encadeado no anterior porque este segundo só pode iniciar quando o anterior 
-            //estiver concluido, porque precisamos do produto retornado pelo primeiro.
+            //estiver concluido, porque precisamos da categoria do produto retornado pelo primeiro.
             //primeiro, guardamos numa variavel o id do produto retornado, 
             //que é a caracteristica unica que o identifica.
             //depois, o fetch vai obter um array de objetos de todos os produtos da categoria do produto retornado,
