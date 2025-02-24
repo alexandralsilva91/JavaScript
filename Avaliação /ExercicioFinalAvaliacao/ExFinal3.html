@@ -7,11 +7,21 @@
 </head>
 <body>
     <script>
+        //encontrar o id atraves das querystrings do url, caso essas query strings 
+        //tiverem o id, eu vou obte-lo:
         const urlParams = new URLSearchParams(document.location.search);
         const productId = urlParams.has("id") ? urlParams.get("id") : 1;
 
+        //criar a div do produto seleccionado, e a div onde vão ficar os 3 primeiros produtos
+        //da mesma categoria do produto principal, e adiciona las ao body do document: 
         const productDiv = document.createElement('div');
         document.body.appendChild(productDiv);
+        const productsSameCategoryDiv = document.createElement('div');
+        document.body.appendChild(productsSameCategoryDiv);
+
+        //fazer fetch para obter o produto que corresponde ao productID que queremos,
+        //e coloca lo dentro da div productDiv, com todas as suas caracteristicas, de forma organizada
+        //retorna mos o produto no fim deste fetch para podermos usa lo no proximo feth 
         fetch(`https://fakestoreapi.com/products/${productId}`)
             .then((response) => response.json())
             .then((product) => {
@@ -30,10 +40,46 @@
                         count: ${product.rating.count}
                     </li>
                 </ul>`;
-            }).catch(() => {
+                return product;
+            })
+
+            //o proximo fetch é encadeado no anterior porque este segundo só pode iniciar quando o anterior 
+            //estiver concluido, porque precisamos do produto retornado pelo primeiro.
+            //primeiro, guardamos numa variavel o id do produto retornado, 
+            //que é a caracteristica unica que o identifica.
+            //depois, o fetch vai obter um array de objetos de todos os produtos da categoria do produto retornado,
+            //inclusive o produto retornado.
+            //depois, criei um arrayWithoutThatProduct que exclui o produto retornado.
+            //depois, criei outro array que guarda os 3 primeiros produtos do arrayWithoutThatProduct, ao qual
+            //chamei arrayOfThreeProducts.
+            //depois, fui acrescentando a imagem e o nome de cada um desses 3 produtos, sob a forma de html
+            //à variavel html que começou por ser uma string vazia.
+            //depois introduzi esse html na div productsSameCategoryDiv através do innerHTML.
+
+            .then((product) => {
+                const thisProductId = product.id;
+                fetch(`https://fakestoreapi.com/products/category/${product.category}`)
+                    .then((response) => response.json())
+                    .then((products) => {
+                        console.log(products);
+                        const arrayWithoutThatProduct = products.filter((product) => product.id != thisProductId);
+                        console.log(arrayWithoutThatProduct);
+                        const arrayOfThreeProducts = arrayWithoutThatProduct.splice(0, 3);
+                        console.log(arrayOfThreeProducts);
+
+                        let html = '';
+                        arrayOfThreeProducts.forEach((product) => {
+                            html += `<img src=${product.image} alt=”imagem do produto” width=60 height=40 /><h5>${product.title}</h5>`
+                        })
+                        
+                        productsSameCategoryDiv.innerHTML = html;
+                    })
+            }) //caso se tente selecionar um produto com um id que nao existe nesta api:
+            .catch(() => {
                 productDiv.innerHTML = `<h1>SEM PRODUTO</h1>`;
             });
-        
+
+        //defini um footer que diz: Copyright e o ano atual:
         function setFooter() {
             const todayDate = new Date();
             const fullYear = todayDate.getFullYear(); 
@@ -42,7 +88,7 @@
             document.body.appendChild(footer);
         }
         setFooter();
-      
+
     </script>
 </body>
 </html>
